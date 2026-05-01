@@ -1,0 +1,26 @@
+#!/bin/bash
+
+usage() {
+    echo "Usage: $0 -a ARCH -k KERNEL_VERSION"
+    exit 1
+}
+
+while getopts "a:k:" opt; do
+    case $opt in
+        a) ARCH="$OPTARG" ;;
+        k) KERNEL_VERSION="$OPTARG" ;;
+        *) usage ;;
+    esac
+done
+
+if [ -z "$ARCH" ] || [ -z "$KERNEL_VERSION" ]; then
+    usage
+fi
+
+cd /app/koji && \
+    koji download-build --arch=$ARCH kernel-$KERNEL_VERSION && \
+    dnf install -y --setopt=install_weak_deps=False \
+      ./kernel-core-$KERNEL_VERSION.$ARCH.rpm \
+      ./kernel-devel-$KERNEL_VERSION.$ARCH.rpm \
+      ./kernel-modules-$KERNEL_VERSION.$ARCH.rpm \
+      ./kernel-modules-core-$KERNEL_VERSION.$ARCH.rpm
