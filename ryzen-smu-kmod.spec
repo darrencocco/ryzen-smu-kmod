@@ -1,8 +1,8 @@
 %global gitname    ryzen_smu
 %global giturl     https://github.com/amkillam/%{gitname}
-%global gitcommit  1be4fb1cd9d60b5ddefc2a4201a898766a731400
+%global gitcommit  d2983668300dd2a598e5a7dc40e71ce0678cc270
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260709.%{gitshortcommit}
+%global gitsnapinfo git20260914.%{gitshortcommit}
 %global debug_package %{nil}
 # (un)define the next line to either build for the newest or all current kernels
 #define buildforkernels newest
@@ -90,6 +90,9 @@ mv userspace/monitor_cpu %{buildroot}%{_bindir}/monitor_cpu
 %license LICENSE
 
 %changelog
+* Mon Sep 14 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 0.1.7^git20260914.d298366
+- Updated to git commit d2983668300dd2a598e5a7dc40e71ce0678cc270, updated support for kernel 7.2+.
+
 * Thu Jul 09 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 0.1.7^git20260709.1be4fb1
 - Updated to git commit 1be4fb1cd9d60b5ddefc2a4201a898766a731400, added support Ryzen AI 9 HX 370.
 
