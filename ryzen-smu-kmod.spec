@@ -13,7 +13,7 @@
 Name:           ryzen-smu-kmod
 
 Version:        0.1.7^%{gitsnapinfo}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Driver that exposes the AMD Ryzen SMU
 
 Group:          System Environment/Kernel
@@ -90,10 +90,13 @@ mv userspace/monitor_cpu %{buildroot}%{_bindir}/monitor_cpu
 %license LICENSE
 
 %changelog
-* Mon Sep 14 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 0.1.7^git20260914.d298366
+* Sun Nov 01 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 0.1.7^git20260914.d298366-2
+- Bumped dist number for updated dependencies.
+
+* Mon Sep 14 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 0.1.7^git20260914.d298366-1
 - Updated to git commit d2983668300dd2a598e5a7dc40e71ce0678cc270, updated support for kernel 7.2+.
 
-* Thu Jul 09 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 0.1.7^git20260709.1be4fb1
+* Thu Jul 09 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 0.1.7^git20260709.1be4fb1-1
 - Updated to git commit 1be4fb1cd9d60b5ddefc2a4201a898766a731400, added support Ryzen AI 9 HX 370.
 
 * Fri May 01 2026 darrencocco
